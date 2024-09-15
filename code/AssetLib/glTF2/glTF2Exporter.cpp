@@ -1244,6 +1244,13 @@ void glTF2Exporter::ExportMeshes() {
             }
         }
 
+        /******************** Tangents ********************/
+        Ref<Accessor> t = ExportData(*mAsset, meshId, b, aim->mNumVertices, aim->mTangents, AttribType::VEC3,
+                AttribType::VEC3, ComponentType_FLOAT, BufferViewTarget_ARRAY_BUFFER);
+        if (t) {
+            p.attributes.tangent.push_back(t);
+        }
+
         /*************** Vertices indices ****************/
         if (aim->mNumFaces > 0) {
             std::vector<IndicesType> indices;
@@ -1348,8 +1355,6 @@ void glTF2Exporter::ExportMeshes() {
                     }
                     delete[] pNormalDiff;
                 }
-
-                // tangent?
             }
         }
     }

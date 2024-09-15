@@ -612,6 +612,7 @@ namespace glTF2 {
                     WriteAttrs(w, attrs, p.attributes.color, "COLOR", true);
                     WriteAttrs(w, attrs, p.attributes.joint, "JOINTS", true);
                     WriteAttrs(w, attrs, p.attributes.weight, "WEIGHTS", true);
+                    WriteAttrs(w, attrs, p.attributes.tangent, "TANGENT");
                 }
                 prim.AddMember("attributes", attrs, w.mAl);
 
